@@ -1,8 +1,3 @@
-# AngularForm
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version **19.2.1**.
-This project was generated on node **22.14.0** which was current LTS version.
-
 # Angular Forms
 Repository was created for recruitment task. To start a local development server, run:
 
@@ -10,6 +5,9 @@ Repository was created for recruitment task. To start a local development server
 npm install
 npm start
 ```
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version **19.2.1**.
+This project was generated on node **22.14.0** which was current LTS version.
 
 ## Day 1 - Design Web Page
 On the first day of assignment I decided to create simple wireframes & mock-ups for future reference while creating application.
