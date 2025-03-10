@@ -9,9 +9,9 @@ export class SignInService {
   constructor(private httpClient: HttpClient) {}
 
   signIn$(email: string, password: string): Observable<SignInResult> {
-    return this.httpClient.post(`${this.URL}/sign-in`, {
+    return this.httpClient.post<SignInResult>(`${this.URL}/sign-in`, {
       email,
       password,
-    }) as Observable<SignInResult>;
+    });
   }
 }

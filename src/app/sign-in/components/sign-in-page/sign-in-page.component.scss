@@ -22,8 +22,8 @@
         height: 70px;
 
         @include mix.respond(xs, sm) {
-            width: 240px;
-            height: 240px;
+            width: 30vw;
+            height: 30vh;
         }
     }
 }
@@ -108,7 +108,7 @@
             &::after {
                 content: "";
                 display: block;
-                height: 30vh;
+                height: 20%;
                 width: 200vw;
                 background-color: #DD0031;
                 position: absolute;

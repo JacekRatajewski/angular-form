@@ -12,4 +12,8 @@ export class LocalstorageService<T> {
 
     return null;
   }
+
+  clear() {
+    localStorage.clear();
+  }
 }

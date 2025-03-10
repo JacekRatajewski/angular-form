@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignInService } from '../../services/sign-in.service';
 import { Router } from '@angular/router';
 import { SignInResult } from '../../services/models/sign-in-result.model';
-import { LocalstorageService } from '../../services/localstorage.service';
+import { LocalstorageService } from '../../../../shared/services/localstorage.service';
 
 @Component({
   selector: 'app-sign-in-page',

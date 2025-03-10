@@ -30,3 +30,20 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+@mixin position-center-top {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin display-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin display-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

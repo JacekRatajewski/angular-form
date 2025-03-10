@@ -1,0 +1,139 @@
+@use 'abstracts/variables' as vars;
+@use 'abstracts/mixins' as mix;
+
+.container {
+    display: grid;
+    grid-template-columns: 175px 1fr 100px;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas:
+        "Sidebar Navigation Navigation"
+        "Sidebar Content Content";
+    width: 100%;
+    height: 100%;
+
+    @include mix.respond(xs, sm) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr;
+        grid-template-areas:
+            "Navigation"
+            "Content";
+    }
+
+    .sidebar {
+        grid-area: Sidebar;
+
+        @include mix.respond(xs, sm) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+
+        .sidebar-content {
+            background-color: vars.$secondary;
+            width: 100%;
+            border-radius: unset;
+
+            @include mix.respond(xs, sm) {
+                width: 0%;
+
+                &.sidebar-content--opened {
+                    width: 175px;
+                }
+            }
+        }
+
+        .logo {
+            @include mix.display-center;
+            margin-top: 5vh;
+
+            .logo_src {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+
+        .sidebar_toggle {
+            width: 3rem;
+            height: 3rem;
+            font-size: 3rem;
+            cursor: pointer;
+            position: fixed;
+            left: 175px;
+            @include mix.display-center;
+            @include mix.position-center-top;
+            background: transparent;
+            outline: unset;
+            border: none;
+
+            .sidebar_toggle-icon {
+                transform: scale(2);
+            }
+
+            @include mix.respond(xs, sm) {
+                left: unset;
+            }
+        }
+
+    }
+
+    .content {
+        grid-area: Content;
+        @include mix.display-center;
+    }
+
+    .navigation {
+        grid-area: Navigation;
+
+        .portrait {
+            @include mix.display-end;
+            margin-top: 5vh;
+            margin-right: 5vh;
+
+            .portrait_src {
+                border-radius: 100%;
+                width: 70px;
+                height: 70px;
+            }
+
+            .portrait-menu {
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 1vw;
+    right: 5vh;
+
+    @include mix.respond(xs, sm) {
+        @include mix.position-center;
+    }
+}
+
+.welcome-label {
+    @include mix.display-center;
+    flex-direction: column;
+    position: relative;
+    left: -5vw;
+    top: -5vh;
+
+    @include mix.respond(xs, sm) {
+        left: 0;
+        top: 0;
+
+        .title-1 {
+            @include mix.getTypography(title-1-xs);
+        }
+
+        .title-3 {
+            @include mix.getTypography(title-3-xs);
+        }
+    }
+}

@@ -1,1 +1,48 @@
-<div>Home</div>
+<div class="container">
+  <mat-drawer-container class="sidebar" autosize>
+    <mat-drawer
+      #drawer
+      class="sidebar-content"
+      [class.sidebar-content--opened]="drawer.opened"
+      mode="side"
+    >
+      @if (drawer.opened) {
+      <div class="logo">
+        <img class="logo_src" src="assets/icons/logo.svg" alt="logo" />
+      </div>
+      }
+    </mat-drawer>
+
+    <button
+      *ngIf="isMobile"
+      class="sidebar_toggle"
+      type="button"
+      mat-button
+      (click)="drawer.toggle()"
+    >
+      <mat-icon class="sidebar_toggle-icon">{{
+        drawer.opened ? "chevron_left" : "chevron_right"
+      }}</mat-icon>
+    </button>
+  </mat-drawer-container>
+  <div class="navigation">
+    <div class="portrait">
+      <button class="portrait-menu" mat-button [matMenuTriggerFor]="menu">
+        <img class="portrait_src" [src]="user?.portraitUrl" alt="logo" />
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logOut()">
+          <mat-icon>logout</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="content">
+    <div class="welcome-label">
+      <h3 class="title-3">{{ user?.name }} Welcome to</h3>
+      <h1 class="title-1">Angular Forms</h1>
+    </div>
+  </div>
+  <div class="footer">&copy; angular forms 2025</div>
+</div>

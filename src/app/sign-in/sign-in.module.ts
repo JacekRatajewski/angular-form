@@ -15,7 +15,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { SignInResult } from './services/models/sign-in-result.model';
-import { LocalstorageService } from './services/localstorage.service';
+import { LocalstorageService } from '../../shared/services/localstorage.service';
 
 const materialModules = [
   MatGridListModule,

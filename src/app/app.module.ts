@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { provideRouter, RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 const providers = [
@@ -17,7 +18,11 @@ const providers = [
 ];
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+  ],
   exports: [],
   declarations: [AppComponent],
   providers: [...providers],
