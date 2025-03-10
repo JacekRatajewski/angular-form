@@ -1,0 +1,160 @@
+@use 'abstracts/variables' as vars;
+@use 'abstracts/mixins' as mix;
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    position: absolute;
+    left: 5vw;
+    top: 5%;
+
+    @include mix.respond(xs, sm) {
+        top: 0%;
+        @include mix.position-center;
+    }
+
+    &,
+    .logo_src {
+        width: 70px;
+        height: 70px;
+
+        @include mix.respond(xs, sm) {
+            width: 240px;
+            height: 240px;
+        }
+    }
+}
+
+.form-container_title {
+    margin-bottom: 3rem;
+}
+
+.form-presentation {
+    @include mix.respond(xs, sm) {
+        display: none;
+    }
+
+    .form-presentation_src {
+        width: 60%;
+        position: absolute;
+        left: 10%;
+        top: 10%;
+    }
+
+    .form-presentation_square {
+
+        &--primary,
+        &--secondary {
+            border-radius: 8%;
+            position: absolute;
+
+        }
+
+        &--primary {
+            width: 85%;
+            height: 100%;
+            top: -30%;
+            right: -5%;
+            z-index: -1;
+            transform: rotate(15deg);
+            background-color: vars.$primary;
+        }
+
+        &--secondary {
+            width: 65%;
+            height: 85%;
+            top: -10%;
+            right: 0%;
+            z-index: -2;
+            transform: rotate(28deg);
+            background-color: vars.$secondary;
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    left: 5vw;
+    bottom: 1%;
+
+    @include mix.respond(xs, sm) {
+        @include mix.position-center;
+        color: vars.$white;
+    }
+}
+
+.form {
+    height: 100%;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding-top: 50%;
+        padding-left: 5vw;
+        padding-right: 35%;
+
+        @include mix.respond(xs, sm) {
+            padding-left: 10vw;
+            padding-right: 10vw;
+            padding-top: 50vh;
+            justify-content: flex-start;
+            align-items: left;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 30vh;
+                width: 200vw;
+                background-color: #DD0031;
+                position: absolute;
+                right: -50vw;
+                bottom: -10vh;
+                z-index: -1;
+                transform: rotate(15deg);
+            }
+        }
+
+        .form-container_controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas:
+                'Email Email'
+                'Pass Pass'
+                'SignIn .';
+            gap: 1rem;
+
+            &-email,
+            &-password {
+                width: 100%;
+
+                mat-form-field {
+                    margin-bottom: 3px;
+                }
+            }
+
+            &-email {
+                grid-area: Email;
+            }
+
+            &-password {
+                grid-area: Pass;
+            }
+
+            &-sign-in {
+                grid-area: SignIn;
+            }
+        }
+    }
+}
+
+@include mix.respond(xs, sm) {
+    .form-grid {
+        width: 100% !important;
+    }
+}

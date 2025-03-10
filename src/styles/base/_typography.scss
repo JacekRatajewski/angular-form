@@ -1,0 +1,20 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/variables' as vars;
+
+.title-1 {
+    @include mixins.getTypography(title-1);
+}
+
+.title-3 {
+    @include mixins.getTypography(title-3);
+}
+
+.footer {
+    @include mixins.getTypography(footer);
+    text-transform: uppercase;
+}
+
+.error {
+    @include mixins.getTypography(error);
+    color: vars.$error
+}

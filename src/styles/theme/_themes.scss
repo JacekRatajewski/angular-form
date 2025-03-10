@@ -1,9 +1,10 @@
 @use '@angular/material' as mat;
+@use '../abstracts/variables' as vars;
 
 html {
     @include mat.theme((color: (theme-type: light,
-                primary: mat.$azure-palette,
-                tertiary: mat.$blue-palette,
+                primary: vars.$primary-palette,
+                tertiary: vars.$tertiary-palette,
             ),
             typography: Roboto,
             density: 0,

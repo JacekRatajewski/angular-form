@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use './variables' as vars;
+
+@mixin getTypography($variant) {
+    $font-variant: map.get(vars.$font-variants, $variant);
+    font-size: map.get($font-variant, fs);
+    line-height: map.get($font-variant, lh);
+    font-family: map.get($font-variant, ff), sans-serif;
+    font-weight: map.get($font-variant, fw);
+}
+
+@mixin respond($min, $max: inf) {
+    $min-width: map.get(vars.$breakpoints, $min);
+    $max-width: map.get(vars.$breakpoints, $max) - 1px;
+
+    @if $max-width ==-1px {
+        @media (min-width: $min-width) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $min-width) and (max-width: $max-width) {
+            @content;
+        }
+    }
+}
+
+@mixin position-center {
+    left: 50%;
+    transform: translateX(-50%);
+}

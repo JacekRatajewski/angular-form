@@ -3,22 +3,48 @@
     <img class="logo_src" src="assets/icons/logo.svg" alt="logo" />
   </div>
   <div class="form">
-    <mat-grid-list cols="2">
-      <mat-grid-tile>
-        <div class="form-title">
-          <h3>Welcome to</h3>
-          <h1>Angular Forms!</h1>
+    <mat-grid-list cols="3" rowHeight="100%">
+      <mat-grid-tile class="form-grid">
+        <div class="form-container">
+          <div class="form-container_title">
+            <h3 class="title-3">Welcome to</h3>
+            <h1 class="title-1">Angular Forms!</h1>
+          </div>
+          <form [formGroup]="signInForm" class="form-container_controls">
+            <div class="form-container_controls-email">
+              <mat-form-field appearance="outline">
+                <mat-label>E-Mail</mat-label>
+                <input matInput formControlName="email" />
+              </mat-form-field>
+              <app-error [form]="signInForm" controlName="email"></app-error>
+            </div>
+            <div class="form-container_controls-password">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+              </mat-form-field>
+              <app-error [form]="signInForm" controlName="password"></app-error>
+            </div>
+            <button
+              (click)="sendForm()"
+              class="form-container_controls-sign-in"
+              mat-flat-button
+            >
+              Sign In
+            </button>
+          </form>
         </div>
       </mat-grid-tile>
-      <div class="form-controls"></div>
-      <mat-grid-tile>
-        <div class="form-presentation">
-          <img class="form-presentation_src" src="assets/icons/presentation.svg" alt="presentation" />
-          <div class="form-presentation_square--primary"></div>
-          <div class="form-presentation_square--secondary"></div>
-        </div>
+      <mat-grid-tile class="form-presentation" colspan="2">
+        <img
+          class="form-presentation_src"
+          src="assets/icons/presentation.svg"
+          alt="presentation"
+        />
+        <div class="form-presentation_square--primary"></div>
+        <div class="form-presentation_square--secondary"></div>
       </mat-grid-tile>
     </mat-grid-list>
   </div>
-  <div class="footer"></div>
+  <div class="footer">&copy; angular forms 2025</div>
 </div>
